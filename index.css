@@ -1,0 +1,239 @@
+p {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+em {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+strong {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #FAFAFA;
+        color: black;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+    }
+
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+        color: #4A4A4A;
+    }
+
+    a {
+        color: #0073D1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #1F1F1F;
+        color: #E6E6E6;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+    }
+
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+    }
+
+    a {
+        color: #A19AC6;
+    }
+}
+
+/* mobile */
+@media (width < 800px) {
+    /* Begin nav bar */
+
+    #nav_bar_desktop {
+        display: none;
+    }
+
+    #nav_bar_mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #008577;
+        padding-left: 0.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #nav_bar_mobile_menu {
+        display: flex;
+        flex-direction: column;
+        background-color: #008577;
+    }
+
+    #nav_bar_mobile_menu[hidden] {
+        display: none;
+    }
+
+    #nav_bar_mobile_button {
+        width: fit-content;
+    }
+
+    .nav_bar_link:link {
+        text-align: left;
+        color: white;
+        padding: 0.5rem 0.5rem 0.5rem 2.2rem;
+        text-decoration: none;
+    }
+
+    .nav_bar_link:visited {
+        text-align: left;
+        color: white;
+        padding: 0.5rem 0.5rem 0.5rem 2.2rem;
+        text-decoration: none;
+    }
+
+    .nav_bar_link:hover {
+        text-align: left;
+        color: white;
+        padding: 0.5rem 0.5rem 0.5rem 2.2rem;
+        text-decoration: none;
+        background-color: #007065;
+    }
+
+    #nav_bar_mobile hr {
+        width: 100%;
+        margin: 0;
+        border: none;
+        height: 1px;
+        background-color: #E6E6E6;
+    }
+
+    /* End nav bar */
+
+
+    #profile_picture_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #profile_picture {
+        width: 20rem;
+    }
+
+    #content_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content {
+        width: 80%;
+    }
+}
+
+/* desktop */
+@media (width >= 800px) {
+    /* Begin nav bar */
+    
+    #nav_bar_mobile {
+        display: none;
+    }
+
+    #nav_bar_desktop {
+        display: flex;
+        justify-content: space-between;
+        background-color: #008577;
+        margin-bottom: 0.5rem;
+    }
+
+    #nav_bar_desktop_start {
+        display: flex;
+        justify-items: start;
+    }
+
+    #nav_bar_desktop_end {
+        display: flex;
+        justify-items: end;
+    }
+
+    .nav_bar_link:link {
+        text-align: center;
+        color: white;
+        padding: 0.5rem;
+        text-decoration: none;
+    }
+
+    .nav_bar_link:visited {
+        text-align: center;
+        color: white;
+        padding: 0.5rem;
+        text-decoration: none;
+    }
+
+    .nav_bar_link:hover {
+        text-align: center;
+        color: white;
+        padding: 0.5rem;
+        text-decoration: none;
+        background-color: #007065;
+    }
+
+    /* End nav bar */
+
+    #profile_picture_container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #profile_picture {
+        width: 20rem;
+    }
+
+    #content_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content {
+        width: 70%;
+        max-width: 60rem;
+    }
+}
