@@ -3,8 +3,7 @@ p {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-variation-settings:
-    "wdth" 100;
+    font-variation-settings: "wdth" 100;
 }
 
 em {
@@ -12,8 +11,7 @@ em {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: italic;
-    font-variation-settings:
-    "wdth" 100;
+    font-variation-settings: "wdth" 100;
 }
 
 strong {
@@ -21,8 +19,7 @@ strong {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    font-variation-settings:
-    "wdth" 100;
+    font-variation-settings: "wdth" 100;
 }
 
 @media (prefers-color-scheme: light) {
@@ -36,8 +33,7 @@ strong {
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
+        font-variation-settings: "wdth" 100;
     }
 
     h1 {
@@ -45,8 +41,7 @@ strong {
         font-optical-sizing: auto;
         font-weight: 500;
         font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
+        font-variation-settings: "wdth" 100;
         color: #4A4A4A;
     }
 
@@ -66,8 +61,7 @@ strong {
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
+        font-variation-settings: "wdth" 100;
     }
 
     h1 {
@@ -75,8 +69,7 @@ strong {
         font-optical-sizing: auto;
         font-weight: 500;
         font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
+        font-variation-settings: "wdth" 100;
     }
 
     a {
