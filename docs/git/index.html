@@ -393,9 +393,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#viewing-branch-history-and-differences" class="md-nav__link">
+  <a href="#combining-multiple-commits-into-a-single-new-commit-when-merging" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Branch History and Differences
+      Combining Multiple Commits into a Single New Commit When Merging
     </span>
   </a>
   
@@ -403,6 +403,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-branch-history-and-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Branch History and Differences
+    </span>
+  </a>
   
 </li>
       
@@ -756,9 +765,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#viewing-branch-history-and-differences" class="md-nav__link">
+  <a href="#combining-multiple-commits-into-a-single-new-commit-when-merging" class="md-nav__link">
     <span class="md-ellipsis">
-      Viewing Branch History and Differences
+      Combining Multiple Commits into a Single New Commit When Merging
     </span>
   </a>
   
@@ -766,6 +775,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-branch-history-and-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Branch History and Differences
+    </span>
+  </a>
   
 </li>
       
@@ -1145,49 +1163,68 @@
 <blockquote>
 <p>Note that you can create a new branch off of a commit then <a href="#reverting-to-a-previous-commit">revert</a> to a previous commit on the original branch without affecting the commits in the new branch.</p>
 </blockquote>
-<h3 id="viewing-branch-history-and-differences">Viewing Branch History and Differences</h3>
+<h3 id="combining-multiple-commits-into-a-single-new-commit-when-merging">Combining Multiple Commits into a Single New Commit When Merging</h3>
+<p>You can combine multiple commits on one branch into a single new commit when merging into a new branch using the <code>--squash</code> option. For example, to merge multiple commits on <code>&lt;branch_name&gt;</code> into a single new commit on <code>master</code>:</p>
+<ol>
+<li>
+<p>Checkout <code>master</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span></code></pre></div>
+</li>
+<li>
+<p>Merge the changes from <code>&lt;branch_name&gt;</code> into <code>master</code> using the <code>--squash</code> option:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>&lt;branch_name&gt;
+</span></code></pre></div>
+</li>
+<li>
+<p>Commit the changes on <code>master</code> to complete the merge:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
+</span></code></pre></div>
+</li>
+</ol>
+<h2 id="viewing-branch-history-and-differences">Viewing Branch History and Differences</h2>
 <p>To view the <code>git</code> log for a branch:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>log<span class="w"> </span>&lt;branch_name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>log<span class="w"> </span>&lt;branch_name&gt;
 </span></code></pre></div>
 <p>where <code>&lt;branch_name&gt;</code> is the name of the branch.</p>
 <p>To view the differences between the most recent commits on two different branches:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;branch_1_name&gt;<span class="w"> </span>&lt;branch_2_name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;branch_1_name&gt;<span class="w"> </span>&lt;branch_2_name&gt;
 </span></code></pre></div>
 <p>where <code>&lt;branch_1_name&gt;</code> is the name of the first branch to compare and <code>&lt;branch_2_name&gt;</code> is the name of the second branch to compare.</p>
 <p>To view changes to a single file between two different branches:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;branch_1_name&gt;<span class="w"> </span>&lt;branch_2_name&gt;<span class="w"> </span>&lt;file_path&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;branch_1_name&gt;<span class="w"> </span>&lt;branch_2_name&gt;<span class="w"> </span>&lt;file_path&gt;
 </span></code></pre></div>
 <p>where <code>&lt;file_path&gt;</code> is the path to the file.</p>
 <h2 id="stashing">Stashing</h2>
 <p>If you have changed files on one branch and need to switch to another branch, you will need to either commit the changes or stash them. <a href="https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a> allows you to save changes to files on a branch without committing them so that you can switch to another branch and return later to finish the changes and commit them.</p>
 <p>To stash changes:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>stash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>stash
 </span></code></pre></div>
 <p>If you run <code>git status</code>, you will notice that it will tell you that there is nothing to commit and the working directory is clean, allowing you to switch to another branch if you want. To list all stashes:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>git<span class="w"> </span>stash<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>stash<span class="w"> </span>list
 </span></code></pre></div>
 <p>To reapply the changed files, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply
 </span></code></pre></div>
 <p>If there are multiple stashes, you can apply a specific stash by running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
 </span></code></pre></div>
 <p>where <code>&lt;stash_number&gt;</code> is the number assigned to the stash visible in the output of <code>git stash list</code>. Note that while <code>git stash apply</code> will restore all changed files from the stash, it will not stage files automatically that were staged prior to the files being staged. To have <code>git stash apply</code> automatically restage previously staged files, use the <code>--index</code> option:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>--index
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>--index
 </span></code></pre></div>
 <p>or</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>--index<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w"> </span>--index<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
 </span></code></pre></div>
 <p>To remove a stash from the stash list, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span>&lt;stash_number&gt;<span class="o">}</span>
 </span></code></pre></div>
 <p>where <code>&lt;stash_number&gt;</code> is the number assigned to the stash, visible in the output of <code>git stash list</code>. To reapply stashed files <em>and</em> remove stashed files from the stash list automatically after they have been reapplied, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>git<span class="w"> </span>stash<span class="w"> </span>pop
 </span></code></pre></div>
 <p>with the optional <code>--index</code> option and <code>stash@{&lt;stash_number&gt;}</code> argument, just like <code>git stash apply</code>.</p>
 <h2 id="copying-a-file-from-one-branch-to-another">Copying a File from One Branch to Another</h2>
 <p>To copy a file that exists in one branch to another branch, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;originating_branch_name&gt;<span class="w"> </span>&lt;file_path&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;originating_branch_name&gt;<span class="w"> </span>&lt;file_path&gt;
 </span></code></pre></div>
 <p>where <code>&lt;originating_branch_name&gt;</code> is the name of the branch from which the file is copied and <code>&lt;file_path&gt;</code> is the path to the file.</p>
 <h2 id="separating-a-file-into-separate-files-while-preserving-history">Separating a File into Separate Files while Preserving History</h2>
@@ -1196,33 +1233,33 @@
 <ol>
 <li>
 <p>Make two copies of the original file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>cp<span class="w"> </span>&lt;original_file&gt;<span class="w"> </span>&lt;new_file_1&gt;
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>cp<span class="w"> </span>&lt;original_file&gt;<span class="w"> </span>&lt;new_file_2&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>cp<span class="w"> </span>&lt;original_file&gt;<span class="w"> </span>&lt;new_file_1&gt;
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>cp<span class="w"> </span>&lt;original_file&gt;<span class="w"> </span>&lt;new_file_2&gt;
 </span></code></pre></div>
 <p>where <code>&lt;original_file&gt;</code> is the name of the original file, <code>&lt;new_file_1&gt;</code> is the name of the first copy of the original file, and <code>&lt;new_file_2&gt;</code> is the name of the second copy of the original file. If you ultimately want to keep the original name of the file for one of the copies, consider naming <code>&lt;new_file_1&gt;</code> as <code>&lt;original_file&gt;_temp</code>.</p>
 </li>
 <li>
 <p>Delete the original file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>rm<span class="w"> </span>&lt;original_file&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>rm<span class="w"> </span>&lt;original_file&gt;
 </span></code></pre></div>
 </li>
 <li>
 <p>Track the new files:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;new_file_1&gt;<span class="w"> </span>&lt;new_file_2&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;new_file_1&gt;<span class="w"> </span>&lt;new_file_2&gt;
 </span></code></pre></div>
 <p>Optionally, you can add <code>&lt;original_file&gt;</code> to stage it for deletion, or use the <code>-a</code> option with <code>commit</code> as below.</p>
 </li>
 <li>
 <p>Commit the new files (using the <code>-a</code> option also stages the deleted file in order to notify <code>git</code> of its removal):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
 </span></code></pre></div>
 <p>where <code>&lt;message&gt;</code> is the commit message.</p>
 </li>
 <li>
 <p>(Optional) If you want to rename one of the new files back to <code>&lt;original_file&gt;</code>, do so now (<code>&lt;new_file_1&gt;</code> is renamed to <code>&lt;original_file&gt;</code> below):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>mv<span class="w"> </span>&lt;new_file_1&gt;<span class="w"> </span>&lt;original_file&gt;
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;original_file&gt;
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>mv<span class="w"> </span>&lt;new_file_1&gt;<span class="w"> </span>&lt;original_file&gt;
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;original_file&gt;
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -1235,22 +1272,22 @@
 <ol>
 <li>
 <p>Create a new branch and rename <code>b.txt</code> to <code>c.txt</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>git<span class="w"> </span>branch<span class="w"> </span>&lt;new_branch&gt;
-</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;new_branch&gt;
-</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>mv<span class="w"> </span>b.txt<span class="w"> </span>c.txt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>branch<span class="w"> </span>&lt;new_branch&gt;
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;new_branch&gt;
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>mv<span class="w"> </span>b.txt<span class="w"> </span>c.txt
 </span></code></pre></div>
 <p>where <code>&lt;new_branch&gt;</code> is the name of the new branch.</p>
 </li>
 <li>
 <p>On the original branch, rename <code>a.txt</code> to <code>c.txt</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;original_branch&gt;
-</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>mv<span class="w"> </span>a.txt<span class="w"> </span>c.txt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;original_branch&gt;
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>mv<span class="w"> </span>a.txt<span class="w"> </span>c.txt
 </span></code></pre></div>
 <p>where <code>&lt;original_branch&gt;</code> is the name of the original branch.</p>
 </li>
 <li>
 <p>Merge the two branches:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;new_branch&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;new_branch&gt;
 </span></code></pre></div>
 <p>where <code>&lt;new_branch&gt;</code> is the name of the new branch. Resolve the merge conflicts. Then the resulting <code>c.txt</code> file will be a combination of <code>a.txt</code> and <code>b.txt</code> and will retain the <code>git</code> history of each.</p>
 </li>
@@ -1258,13 +1295,13 @@
 <h2 id="reverting-to-a-previous-commit">Reverting to a Previous Commit</h2>
 <p><strong>Warning: Reverting to a previous commit on a branch will destroy all commits made since, unless those commits exist on another branch. Do not revert to a previous commit if any commit made since has been pushed to a shared repository.</strong></p>
 <p>To revert to a previous commit, <strong>eliminating all commits since</strong>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>&lt;commit&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>&lt;commit&gt;
 </span></code></pre></div>
 <p>where <code>&lt;commit&gt;</code> is the hash of the commit you want to revert to. <code>HEAD</code> can also be used to refer to the commit to revert to. For example,</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>HEAD~&lt;n&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>HEAD~&lt;n&gt;
 </span></code></pre></div>
 <p>reverts to the commit <code>&lt;n&gt;</code> commits prior to <code>HEAD</code>. So</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>HEAD~1
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--head<span class="w"> </span>HEAD~1
 </span></code></pre></div>
 <p>reverts to the commit one commit prior to <code>HEAD</code> (for more information, see the <code>SPECIFYING REVISIONS</code> section of <code>man git-rev-parse</code>).</p>
 <p>Note that you can create a new <a href="#branching-and-merging">branch</a> off of a commit then revert to a previous commit on the original branch without affecting the commits in the new branch. See <code>man git-reset</code> for more information.</p>
@@ -1273,58 +1310,58 @@
 <ol>
 <li>
 <p>Locate the hash of the parent of the commit where the deletion occurred:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>git<span class="w"> </span>log
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>git<span class="w"> </span>log
 </span></code></pre></div>
 </li>
 <li>
 <p>Checkout the commit associated with that hash, create a new branch off of that commit, and merge the new branch with the commit where the deletion occurred using the merge strategy <code>ours</code> (for more information on merge strategies, see <code>MERGE STRATEGIES</code> in <code>man git-merge</code>):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;parent_commit&gt;
-</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>git<span class="w"> </span>branch<span class="w"> </span>&lt;new_branch&gt;
-</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;new_branch&gt;
-</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;deletion_commit&gt;<span class="w"> </span>-s<span class="w"> </span>ours
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;parent_commit&gt;
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>git<span class="w"> </span>branch<span class="w"> </span>&lt;new_branch&gt;
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;new_branch&gt;
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;deletion_commit&gt;<span class="w"> </span>-s<span class="w"> </span>ours
 </span></code></pre></div>
 <p>where <code>&lt;parent_commit&gt;</code> is the hash of the parent of the commit where the file was deleted, <code>&lt;new_branch&gt;</code> is the name of the new branch, and <code>&lt;deletion_commit&gt;</code> is the hash of the commit where the file was deleted. This creates a new branch <code>&lt;new_branch&gt;</code> and merges the deletion commit into it, using the <code>ours</code> merge strategy to effectively discard any changes made by the deletion commit.</p>
 </li>
 <li>
 <p>If there are changes in the commit where the file was deleted that you would like to keep, apply the patch of those changes (see <code>man git-apply</code>) then discard the deletion of the file (see the <code>-p</code> option in <code>man git-checkout</code>):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;parent_commit&gt;^..&lt;deletion_commit&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>git<span class="w"> </span>apply
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-p
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>git<span class="w"> </span>diff<span class="w"> </span>&lt;parent_commit&gt;^..&lt;deletion_commit&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>git<span class="w"> </span>apply
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-p
 </span></code></pre></div>
 <p>When you run <code>git checkout -p</code>, <code>git</code> will ask whether you want to discard the applied deletion of the file. Select <code>y</code> to confirm. Then the file will not be deleted. Now be sure to add any untracked files as desired (run <code>git status</code> to view) and then commit the changes:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;untracked_file&gt;
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;commit_message&gt;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>git<span class="w"> </span>add<span class="w"> </span>&lt;untracked_file&gt;
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;commit_message&gt;&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Finally, checkout the branch you want to merge into (for example, <code>master</code> or a development branch--<code>master</code> is used in the example below) to finalize the restoration of the file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
-</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;new_branch&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;new_branch&gt;
 </span></code></pre></div>
 <p>After merging, the previously deleted file should be restored with its history intact.</p>
 </li>
 </ol>
 <h2 id="cloning-a-repository-from-github-gitlab-or-another-server">Cloning a Repository from GitHub, GitLab, or Another Server</h2>
 <p><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Cloning</a> a repository copies a remotely hosted repository to your local machine. For example, to clone a repository hosted on GitHub to your local machine:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
 </span></code></pre></div>
 <p>where <code>&lt;github_user_name&gt;</code> is the GitHub username of the project owner and <code>&lt;repository_name&gt;</code> is the name of the repository you want to clone. The SSH URI used above (<code>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git</code>) can also be obtained by navigating to the repository's URL (<code>https://github.com/&lt;github_user_name&gt;/&lt;repository_name&gt;</code>), clicking the <code>Code</code> button, clicking <code>SSH</code>, and then copying the SSH URI displayed. The process is similar for GitLab.</p>
 <p>To list the remote repositories added to <code>git</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
 </span></code></pre></div>
 <p>The output may be similar to:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>origin git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git (fetch)
-</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>origin git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git (push)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>origin git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git (fetch)
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>origin git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git (push)
 </span></code></pre></div>
 <p>Note that <code>origin</code> is a name used by the <code>git</code> repository on your local machine to refer to the remote repository.</p>
 <p>To update your local repository with changes from the remote repository, retrieve (fetch) the changes and then merge them into your current branch:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>git<span class="w"> </span>fetch
-</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>git<span class="w"> </span>merge
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>git<span class="w"> </span>fetch
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>git<span class="w"> </span>merge
 </span></code></pre></div>
 <p>These two commands can be combined with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>git<span class="w"> </span>pull
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
 <p>If you want to cancel a merge after running <code>git merge</code> or <code>git pull</code> (for example, if there are merge conflicts and you do not want to address them), run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>git<span class="w"> </span>merge<span class="w"> </span>--abort
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>git<span class="w"> </span>merge<span class="w"> </span>--abort
 </span></code></pre></div>
 <h2 id="adding-a-local-repository-to-github-gitlab-or-another-server">Adding a Local Repository to GitHub, GitLab, or Another Server</h2>
 <p>For the following steps, assume that a repository already exists on your local machine and at least one commit has been made to it. To add the local repository to GitHub (the following example uses GitHub, but the process is similar for GitLab or another server):</p>
@@ -1334,16 +1371,16 @@
 </li>
 <li>
 <p>Add the remote repository to <code>git</code> locally:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
 </span></code></pre></div>
 <p>where <code>&lt;github_user_name&gt;</code> is the GitHub username of the project owner and <code>&lt;repository_name&gt;</code> is the name of the remote repository. The SSH URI used above (<code>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git</code>) can be obtained from the page presented after repository creation.</p>
 </li>
 <li>
 <p>Push the changes from the local repository to the remote repository on GitHub:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>master
 </span></code></pre></div>
 <p>Note that <code>--set-upstream origin master</code> will only need to be provided once, when pushing to the remote repository for the first time. After that, commits can be pushed to the remote repository by running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>git<span class="w"> </span>push
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>git<span class="w"> </span>push
 </span></code></pre></div>
 </li>
 </ol>
@@ -1357,33 +1394,33 @@
 <ol>
 <li>
 <p>Add the upstream (original) repository (i.e. the repository that was forked) to <code>git</code> on your local machine:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git
 </span></code></pre></div>
 <p>where <code>&lt;github_user_name&gt;</code> is the GitHub username of the project owner and <code>&lt;repository_name&gt;</code> is the name of the remote repository. The SSH URI used above (<code>git@github.com:&lt;github_user_name&gt;/&lt;repository_name&gt;.git</code>) can be obtained by navigating to the repository's URL (<code>https://github.com/&lt;github_user_name&gt;/&lt;repository_name&gt;</code>), clicking the <code>Code</code> button, clicking <code>SSH</code>, and then copying the SSH URI displayed.</p>
 <p>To list the remote repositories added to <code>git</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
 </span></code></pre></div>
 <p>The output may be similar to:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>origin git@github.com:&lt;github_user_name_2&gt;/&lt;fork_name&gt;.git (fetch)
-</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>origin git@github.com:&lt;github_user_name_2&gt;/&lt;fork_name&gt;.git (push)
-</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>upstream git@github.com:&lt;github_user_name_1&gt;/&lt;original_repository_name&gt;.git (fetch)
-</span><span id="__span-68-4"><a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a>upstream git@github.com:&lt;github_user_name_1&gt;/&lt;original_repository_name&gt;.git (push)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>origin git@github.com:&lt;github_user_name_2&gt;/&lt;fork_name&gt;.git (fetch)
+</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>origin git@github.com:&lt;github_user_name_2&gt;/&lt;fork_name&gt;.git (push)
+</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>upstream git@github.com:&lt;github_user_name_1&gt;/&lt;original_repository_name&gt;.git (fetch)
+</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>upstream git@github.com:&lt;github_user_name_1&gt;/&lt;original_repository_name&gt;.git (push)
 </span></code></pre></div>
 <p>Note that <code>upstream</code> is the local name for the original repository and <code>origin</code> is the local name for the fork.</p>
 </li>
 <li>
 <p>Fetch changes from the upstream repository:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream
 </span></code></pre></div>
 </li>
 <li>
 <p>Checkout the local <code>master</code> branch, if not already the current branch:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
 </span></code></pre></div>
 </li>
 <li>
 <p>Merge the changes from the <code>master</code> branch of the upstream repository with the local <code>master</code> branch:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/master
 </span></code></pre></div>
 <p>Handle any merge conflicts as needed (see <a href="#branching-and-merging">Branching</a>).</p>
 </li>
@@ -1514,14 +1551,14 @@
 <p>While you could open a pull request to merge <code>new</code> into <code>master</code>, this would require someone with the requisite permission to merge the changes and handle any merge conflicts that may arise. To alleviate the work this person needs to do, you can merge the changes yourself on your local machine by rebasing. We do not typically want to merge changes from a non-<code>master</code> branch into the <code>master</code> branch on our local machine--this is best done by opening a pull request in either the origin repository (when using the pushing-directly approach to contributing) or upstream repository (when using the forking approach to contributing). Rebasing allows us to merge the changes locally so that when the pull request is performed on the <code>master</code> branch of the shared repository, there will be minimal or no merge conflicts for the pull request approver to take care of.</p>
 <p>In this scenario, when the <code>new</code> branch is rebased using the <code>master</code> branch as its new base, the commits made to <code>new</code> since diverging from <code>master</code> are applied on top of the commits made to <code>master</code> since <code>new</code> diverged from it (in this case, that occured when <code>new</code> was created). Any merge conflicts that arise from attempting to apply the commits made to <code>new</code> on top of <code>master</code> are handled by you locally. Once these conflicts, if any, have been handled, the commits are merged and the rebasing is complete. Note that merging via <code>git merge</code> and merging via <code>git rebase</code> are different: <code>git merge</code> merges changes from two divergent branches into a single new commit, along with a new "merge commit", while <code>git rebase</code> applies commits made to one branch since a divergence on top of commits made to the other since the divergence, preserving the number of commits but fundamentally modifying the commits on the rebased branch (in our scenario above, <code>new</code>). Therefore, <strong>rebasing should only be done locally to commits that have not yet been pushed</strong>--a rebase should <strong>never</strong> be done to commits that have already been pushed, since this would fundamentally alter commits that others may be relying on in some way in the shared repository.</p>
 <p>To rebase a branch with changes from the <code>master</code> branch (though any branch can be used, <code>master</code> is used for this example):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
-</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>git<span class="w"> </span>pull
-</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;non_master_branch&gt;
-</span><span id="__span-73-4"><a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>git<span class="w"> </span>rebase<span class="w"> </span>master
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>git<span class="w"> </span>pull
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;non_master_branch&gt;
+</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>git<span class="w"> </span>rebase<span class="w"> </span>master
 </span></code></pre></div>
 <p>where <code>&lt;non_master_branch&gt;</code> is the non-<code>master</code> branch to be rebased (such as the <code>new</code> branch from the previous discussion). At this point, the non-<code>master</code> branch can be pushed to the origin repository (if using the pushing-directly approach to contributing) or the upstream repository (if using the forking approach to contributing). If you are just working locally without a remote repository, or if you are the only person working on a remote repository, you can merge the rebased branch directly into <code>master</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
-</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;non_master_branch&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>git<span class="w"> </span>merge<span class="w"> </span>&lt;non_master_branch&gt;
 </span></code></pre></div>
 <p>As previously stated, merging via <code>git merge</code> when working on an unshared repository or via a pull request when working on a shared repository is typically preferred over merging via <code>git rebase</code>, but using <code>git rebase</code> can be used to assist pull request approvers by merging changes locally before opening a pull request.</p>
 <h2 id="branch-protection-rules">Branch Protection Rules</h2>
@@ -1543,12 +1580,12 @@
 <ol>
 <li>
 <p>Configure Git to use SSH for commit signing instead of the default, GPG:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>gpg.format<span class="w"> </span>ssh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>gpg.format<span class="w"> </span>ssh
 </span></code></pre></div>
 </li>
 <li>
 <p>Configure Git to use the private key to use for commit signing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.signingkey<span class="w"> </span>&lt;private_key_path&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.signingkey<span class="w"> </span>&lt;private_key_path&gt;
 </span></code></pre></div>
 <p>where <code>&lt;private_key_path&gt;</code> is the full path (<em>not</em> relative path) to your private key, for example, <code>~/.ssh/id_ed25519</code>.</p>
 <blockquote>
@@ -1557,15 +1594,15 @@
 </li>
 <li>
 <p>Optionally, configure Git to sign commits and tags automatically:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>commit.gpgsign<span class="w"> </span><span class="nb">true</span>
-</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>tag.gpgsign<span class="w"> </span><span class="nb">true</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>commit.gpgsign<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>tag.gpgsign<span class="w"> </span><span class="nb">true</span>
 </span></code></pre></div>
 <p>Alternatively, to sign an individual commit without setting up automatic commit signing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-S<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-S<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
 </span></code></pre></div>
 <p>where <code>&lt;message&gt;</code> is the commit message. As you can see, this is our typical method for committing, with the addition of the <code>-S</code> option to sign the commit.</p>
 <p>To sign an individual tag without setting up automatic tag signing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>&lt;tag_name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>&lt;tag_name&gt;
 </span></code></pre></div>
 <p>where <code>&lt;tag_name&gt;</code> is the name of the tag. As you can see, this is our typical method for creating a tag, with the addition of the <code>-s</code> option to sign the tag.</p>
 </li>
@@ -1580,13 +1617,13 @@
 <ol>
 <li>
 <p>Create a file with the path <code>~/.ssh/allowed_signers</code> and add the following to it:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>&lt;user_email_address&gt; &lt;public_key&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>&lt;user_email_address&gt; &lt;public_key&gt;
 </span></code></pre></div>
 <p>where <code>&lt;user_email_address&gt;</code> is the email address associated with <code>git</code> and <code>&lt;public_key&gt;</code> is the public key (the content of the public key <code>.pub</code> file--for example, the content of <code>~/.ssh/id_ed25519.pub</code>). The option <code>namespaces="git"</code> may come after the user's email address and before the public key and is optional: using it restricts use of the public key to verify the user only when using <code>git</code>. You can remove the <code>namespaces="git"</code> option to allow the public key to be used to verify the user even when not using <code>git</code>. See the <code>ssh-keygen</code> <a href="https://man7.org/linux/man-pages/man1/ssh-keygen.1.html#ALLOWED_SIGNERS">documentation</a> (or run <code>man ssh-keygen</code> and search for the <code>ALLOWED SIGNERS</code> section) and <code>git</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-gpgsshallowedSignersFile">documentation</a> (or run <code>man git-config</code> and search for the <code>gpg.ssh.allowedSignersFile</code> section) for more information on the <code>allowed_signers</code> file.</p>
 </li>
 <li>
 <p>Add the <code>allowed_signers</code> file to <code>git</code> for global use:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>gpg.ssh.allowedSignersFile<span class="w"> </span>~/.ssh/allowed_signers
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>gpg.ssh.allowedSignersFile<span class="w"> </span>~/.ssh/allowed_signers
 </span></code></pre></div>
 <p>It is advisable to add only your own email address and public key to this file. For verification of <code>git</code> contributor's signed commits and tags, use a local file instead (see below).</p>
 </li>
@@ -1597,21 +1634,21 @@
 <ol>
 <li>
 <p>Create a file named <code>allowed_signers</code> in the current project directory and add the following to it:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>&lt;user_email_address&gt; namespaces=&quot;git&quot; &lt;public_key&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>&lt;user_email_address&gt; namespaces=&quot;git&quot; &lt;public_key&gt;
 </span></code></pre></div>
 <p>where <code>&lt;user_email_address&gt;</code> is the email address associated with <code>git</code> and <code>&lt;public_key&gt;</code> is the public key (the content of the public key <code>.pub</code> file--for example, the content of <code>~/.ssh/id_ed25519.pub</code>). Again, use of the <code>namespaces="git"</code> option is optional, but since this file will be only used by <code>git</code> it can be used.</p>
 <p>Add each <code>git</code> contributor's email and public key to the file, each on a new line, as shown above. Since this file overrides any global <code>allowed_signers</code> file, be sure to add your own email and public key to the file as well.</p>
 </li>
 <li>
 <p>Add the <code>allowed_signers</code> file to <code>git</code> for local use (that is, use within the current repository):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>git<span class="w"> </span>config<span class="w"> </span>gpg.ssh.allowedSignersFile<span class="w"> </span>&lt;allowed_signers_file_path&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>git<span class="w"> </span>config<span class="w"> </span>gpg.ssh.allowedSignersFile<span class="w"> </span>&lt;allowed_signers_file_path&gt;
 </span></code></pre></div>
 <p>where <code>&lt;allowed_signers_file_path&gt;</code> is the <em>full</em> path to the project's <code>allowed_signers</code> file.</p>
 </li>
 <li>
 <p>Optionally, track and commit the <code>allowed_signers</code> file:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>git<span class="w"> </span>add<span class="w"> </span>allowed_signers
-</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;add allowed_signers file&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>git<span class="w"> </span>add<span class="w"> </span>allowed_signers
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;add allowed_signers file&quot;</span>
 </span></code></pre></div>
 </li>
 </ol>
@@ -1619,12 +1656,12 @@
 </ol>
 <h3 id="usage">Usage</h3>
 <p>If Git has not been configured to sign commits automatically (see above), then an individual commit may be signed by using the <code>-S</code> option with the typical method for committing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-S<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-S<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;message&gt;&quot;</span>
 </span></code></pre></div>
 <p>where <code>&lt;message&gt;</code> is the commit message.</p>
 <p>If Git has been configured to sign commits automatically, then there is no need to use the <code>-S</code> option.</p>
 <p>If Git has not been configured to sign tags automatically (see above), then an individual tag may be signed by using the <code>-s</code> option with the typical method for committing:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>&lt;tag_name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>&lt;tag_name&gt;
 </span></code></pre></div>
 <p>where <code>&lt;tag_name&gt;</code> is the name of the tag.</p>
 <p>If Git has been configured to sign tags automatically, then there is no need to use the <code>-s</code> option.</p>
