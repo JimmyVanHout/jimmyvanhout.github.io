@@ -460,7 +460,7 @@
 
 
 <h1 id="run-a-program-on-an-esp32-microcontroller">Run a Program on an ESP32 Microcontroller</h1>
-<p>This is a guide on how to run a program on an ESP32 microcontroller using ESP-IDF on Linux (Debian 13). For more information, see the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html">Getting Started documentation</a>, the <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/tools/idf-py.html">IDF Frontend documentation</a>, and the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html">Build System documentation</a>.</p>
+<p>This is a guide on how to run a program on an ESP32 microcontroller using ESP-IDF on GNU/Linux (tested on Debian 13). For more information, see the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html">Getting Started documentation</a>, the <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/tools/idf-py.html">IDF Frontend documentation</a>, and the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html">Build System documentation</a>.</p>
 <h2 id="install-esp-idf-and-required-tools">Install ESP-IDF and Required Tools</h2>
 <p>These steps only need to be completed once:</p>
 <ol>
@@ -547,7 +547,7 @@
 <p>Flash the binaries onto the device:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>idf.py<span class="w"> </span>-p<span class="w"> </span>&lt;port&gt;<span class="w"> </span>-b<span class="w"> </span>&lt;baud_rate&gt;<span class="w"> </span>flash
 </span></code></pre></div>
-<p>where <code>&lt;port&gt;</code> is the port on which the device is connected and <code>&lt;baud_rate&gt;</code> is the baud rate. Specifying the port and the baud rate is optional. By default, ESP-IDF will use a USB port and a baud rate of <code>460800</code>, per the <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/establish-serial-connection.html#connect-esp32-to-pc">documentation</a>. The port on which the device is connected can be found by running:</p>
+<p>where <code>&lt;port&gt;</code> is the port on which the device is connected and <code>&lt;baud_rate&gt;</code> is the baud rate. Specifying the port and the baud rate is optional. By default, ESP-IDF will choose a USB port and set a baud rate of <code>115200</code>, per the <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/kconfig-reference.html#config-esp-console-uart-baudrate">documentation</a> (note that the default baud rate used <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/establish-serial-connection.html#connect-esp32-to-pc">previously</a> was <code>460800</code>). The port on which the device is connected can be found by running:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ls<span class="w"> </span>/dev/tty*
 </span></code></pre></div>
 <p>For example, the port may be <code>/dev/ttyUSB0</code>.</p>
