@@ -1,0 +1,82 @@
+p {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+em {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: "wdth" 100;
+}
+
+strong {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #FAFAFA;
+        color: black;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
+
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        color: #4A4A4A;
+    }
+
+    a {
+        color: #0073D1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #1F1F1F;
+        color: #E6E6E6;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
+
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
+
+    a {
+        color: #A19AC6;
+    }
+}
+
+#content {
+    margin: 2rem;
+}
